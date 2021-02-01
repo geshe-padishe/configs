@@ -1,6 +1,15 @@
 " Plugins :
 call plug#begin()
 
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
+Plug 'w0rp/ale'
 Plug 'mhinz/vim-startify'
 Plug 'kana/vim-surround'
 Plug 'vim-syntastic/syntastic'
@@ -9,9 +18,6 @@ Plug 'preservim/nerdtree'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 
 call plug#end()
-
-" Shell
-set shell=/path/to/zsh
 
 " Auto commands :
 autocmd VimEnter * NERDTree | wincmd p
@@ -22,6 +28,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 nnoremap <S-S> :SyntasticToggleMode<CR>
 let g:syntastic_c_compiler = "gcc"
 let g:syntastic_c_compiler_options=" -Wall -Werror -Wextra -Weverything"
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -35,9 +42,11 @@ let g:syntastic_check_on_wq = 0
 " Split panes management bindings
 
 " Syntax settings
+set backspace=indent,eol,start
 syntax on
 colorscheme sublimemonokai
 highlight Directory ctermfg=red
+set cursorline
 
 " Terminal vs buffers PeaceMaker
 tnoremap <Esc> <C-\><C-n>
@@ -75,6 +84,7 @@ hi CursorLine cterm=bold ctermbg=239 guifg=NONE
 
 " Keyboard bindings
 inoremap jj <ESC>
+
 ""inoremap ( ()<left>
 ""inoremap " ""<left>
 ""inoremap { {}<left><enter><enter><up><tab>
