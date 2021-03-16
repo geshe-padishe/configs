@@ -16,6 +16,12 @@ Plug 'vim-syntastic/syntastic'
 Plug 'pbondoer/vim-42header'
 Plug 'preservim/nerdtree'
 Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdtree-project-plugin'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 
 call plug#end()
 
@@ -24,6 +30,9 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+" Startify settings:
+let g:startify_bookmarks = [
+      \ '~/.vimrc'         ]
 " Syntastic settings :
 nnoremap <S-S> :SyntasticToggleMode<CR>
 let g:syntastic_c_compiler = "gcc"
