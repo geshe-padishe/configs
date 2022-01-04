@@ -14,21 +14,13 @@ Plug 'mhinz/vim-startify'
 Plug 'kana/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'pbondoer/vim-42header'
-Plug 'preservim/nerdtree'
 Plug 'ErichDonGubler/vim-sublime-monokai'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdtree-project-plugin'
-Plug 'PhilRunninger/nerdtree-buffer-ops'
-Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
 " Auto commands :
-autocmd VimEnter * NERDTree | wincmd p
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
 
 " Startify settings:
 let g:startify_bookmarks = [
@@ -53,7 +45,7 @@ let g:syntastic_check_on_wq = 0
 " Syntax settings
 set backspace=indent,eol,start
 syntax on
-colorscheme sublimemonokai
+colorscheme sonokai
 highlight Directory ctermfg=red
 set cursorline
 
@@ -64,15 +56,7 @@ tnoremap <C-J> <C-W><C-J>
 tnoremap <C-K> <C-W><C-K>
 tnoremap <C-L> <C-W><C-L>
 tnoremap <C-H> <C-W><C-H>
-tnoremap <leader>n :NERDTreeFocus<CR>
-tnoremap <C-n> :NERDTree<CR>
-tnoremap <C-t> :NERDTreeToggle<CR>
-tnoremap <C-f> :NERDTreeFind<CR>
 
-noremap <leader>n :NERDTreeFocus<CR>
-noremap <C-n> :NERDTree<CR>
-noremap <C-t> :NERDTreeToggle<CR>
-noremap <C-f> :NERDTreeFind<CR>
 noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
@@ -114,6 +98,7 @@ set softtabstop=4
 set noexpandtab
 set smartindent
 set smarttab
+set hlsearch
 
 " Folding
 set foldlevelstart=99
