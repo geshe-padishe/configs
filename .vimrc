@@ -17,18 +17,29 @@ Plug 'pbondoer/vim-42header'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'sainnhe/sonokai'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 " Auto commands :
 
+" NERDTree Settings:
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
 " Startify settings:
 let g:startify_bookmarks = [
-      \ '~/.vimrc'         ]
+			\ '~/.config/nvim/init.vim' ]
+
 " Syntastic settings :
 nnoremap <S-S> :SyntasticToggleMode<CR>
 let g:syntastic_c_compiler = "gcc"
-let g:syntastic_c_compiler_options=" -Wall -Werror -Wextra -Weverything"
+let g:syntastic_c_compiler_options=" -Wall -Werror -Wextra"
 let g:syntastic_mode_map = { 'mode': 'passive' }
 
 set statusline+=%#warningmsg#
@@ -65,11 +76,8 @@ noremap <C-H> <C-W><C-H>
 " Split panes direction
 set splitbelow
 set splitright
-
 set noswapfile
-
 set colorcolumn=81
-
 set termguicolors
 set guicursor=
 set cursorline
@@ -78,10 +86,6 @@ hi CursorLine cterm=bold ctermbg=239 guifg=NONE
 " Keyboard bindings
 inoremap jj <ESC>
 
-""inoremap ( ()<left>
-""inoremap " ""<left>
-""inoremap { {}<left><enter><enter><up><tab>
-""inoremap [ []<left>
 inoremap <F2> if ()<left>
 inoremap <F3> else if ()<left>
 inoremap <F4> else<enter>
@@ -119,3 +123,46 @@ set ruler
 set nowrap
 set ttyfast
 set showmatch
+
+" 42 header
+let g:user42 = 'ngenadie'
+let g:mail42 = 'ngenadie@student.42.fr'
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/mnt/nfs/homes/ngenadie/.vim/bundles/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/mnt/nfs/homes/ngenadie/.vim/bundles')
+
+" Let dein manage dein
+" Required:
+call dein#add('/mnt/nfs/homes/ngenadie/.vim/bundles/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+" call dein#install()
+"endif
